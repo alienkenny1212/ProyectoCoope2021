@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 
-# Create your models here.
+# Crear modelo
 class Persona(models.Model):
     Nombres = models.CharField(max_length=100)
     Apellidos = models.CharField(max_length=100)
