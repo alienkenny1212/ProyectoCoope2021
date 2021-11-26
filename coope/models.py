@@ -11,3 +11,16 @@ class Persona(models.Model):
 
     def __str__(self):
         return self.Nombres + ' ' +self.Apellidos
+    
+# Crear modelo Socio
+
+class Socio(models.Model):
+    Nombres = models.CharField(max_length=100)
+    Apellidos = models.CharField(max_length=100)
+    Afiliacion_date = models.DateField()
+    Genre = models.CharField(max_length=9)
+    Codigo_Socio = models.CharField(max_length=100)
+    Cantidad_propiedad = models.DecimalField
+
+    def __str__(self):
+        return self.Nombres + ' ' +self.Apellidos
