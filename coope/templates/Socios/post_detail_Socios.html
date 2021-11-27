@@ -1,8 +1,10 @@
 {% extends 'Socios/base.html' %} {% block content %}
+
 <div class="container mt-5">
     <div class="row d-flex justify-content-center">
         <div class="col-md-7">
             <div class="card p-3 py-4">
+
                 <div class="text-center"> <img src="https://cdn-icons-png.flaticon.com/512/1361/1361728.png" width="100" class="rounded-circle"> </div>
                 <div class="text-center mt-3"> <span class="bg-secondary p-1 px-4 rounded text-white">Socio</span>
                     <h5 class="mt-2 mb-0">{{ socios.Nombres }} {{ socios.Apellidos }}</h5> <span> Codigo de socio: {{socios.Codigo_Socio}}</span>
@@ -11,6 +13,10 @@
                         <p class="card-text ">Fecha inscripcion: {{socios.Afiliacion_date}}</p>
                         <p class="card-text ">Propiedades: {{socios.Cantidad_propiedad}}</p>
                     </div>
+
+                    <form action="{% url 'post_edit_socios' pk=socios.pk %}">
+                        <input type="submit" value="Editar" class="btn btn-primary" />
+                    </form>
                 </div>
             </div>
         </div>
