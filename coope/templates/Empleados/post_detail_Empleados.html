@@ -1,0 +1,30 @@
+{% extends 'Socios/base.html' %} {% block content %}
+
+<div class="container mt-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-7">
+            <div class="card p-3 py-4">
+
+                <div class="text-center"> <img src="https://cdn-icons-png.flaticon.com/512/1361/1361728.png" width="100" class="rounded-circle"> </div>
+                <div class="text-center mt-3"> <span class="bg-secondary p-1 px-4 rounded text-white">Empleado</span>
+                    <h5 class="mt-2 mb-0">{{ empleado.Nombres }} {{ empleado.Apellidos }}</h5> <span> Usuario: {{empleado.User}}</span>
+                    <div class="px-4 mt-1">
+                        <p class="card-text ">Puesto: {{empleado.Puesto}}</p>
+                        <p class="card-text ">Estado: {{empleado.Estado}}</p>
+                        <p class="card-text ">CUI: {{empleado.CUI}}</p>
+                        <p class="card-text ">Fecha nacimiento: {{empleado.FechaNac}}</p>
+                        <p class="card-text ">Genero: {{empleado.Genero}}</p>
+                    </div>
+
+                    <form action="{% url 'post_edit_empleado' pk=empleado.pk %}">
+                        <input type="submit" value="Editar" class="btn btn-primary" />
+                    </form>
+                    <form action="{% url 'post_delete_empleado' pk=empleado.pk %}">
+                        <input type="submit" value="Borrar" class="btn btn-danger" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

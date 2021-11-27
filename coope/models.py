@@ -26,3 +26,22 @@ class Socio(models.Model):
         self.save()
     def __str__(self):
         return self.Nombres + ' ' +self.Apellidos
+
+#Crear Modelo Empleado
+class Empleado(models.Model):
+    Nombres = models.CharField(max_length=100)
+    Apellidos = models.CharField(max_length=100)
+    CUI = models.CharField(max_length=17)
+    FechaNac = models.DateField()
+    Genre = models.CharField(max_length=10)
+    User = models.CharField(max_length=20)
+    Password = models.CharField(max_length=20)
+    Puesto = models.CharField(max_length=60)
+    Estado = models.CharField(max_length=60)
+    
+    def publish(self):
+        self.save()
+
+    def __str__(self):
+        return self.Nombres + ' ' +self.Apellidos
+

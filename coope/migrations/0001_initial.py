@@ -34,4 +34,5 @@ class Migration(migrations.Migration):
                 ('Cantidad_propiedad', models.CharField(max_length=9)),
             ],
         ),
+        
     ]
