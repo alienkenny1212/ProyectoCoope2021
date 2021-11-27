@@ -42,7 +42,7 @@ class Migration(migrations.Migration):
                 ('Apellidos', models.CharField(max_length=100)),
                 ('CUI', models.CharField(max_length=13)),
                 ('FechaNac', models.DateField()),
-                ('Genre', models.CharField(max_length=9)),
+                ('Genre', models.CharField(max_length=10)),
                 ('User', models.CharField(max_length=20)),
                 ('Password', models.CharField(max_length=20)),
                 ('Puesto', models.CharField(max_length=60)),
