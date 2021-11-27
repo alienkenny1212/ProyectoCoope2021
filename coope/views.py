@@ -1,16 +1,29 @@
+from re import L
 from django.shortcuts import render
 from django.utils import timezone
 from .models import Socio
 from .models import Persona
-from .forms import PostForm_Socio
+from .forms import PostForm_Persona, PostForm_Socio
 from django.shortcuts import redirect
 from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
-#Vistas de socios
+
+def menu_principal(request):
+    return render(request, 'General/menu.html')
+
+#SOCIOS By Julio Ve
+#
+#
+#
 def post_list_Socios(request):
     socios = Socio.objects.filter(Afiliacion_date__lte=timezone.now()).order_by('Afiliacion_date')
     return render(request, 'Socios/post_list_Socios.html', {'socios': socios})
+
+def post_detail_Socios(request, pk):
+    socios = get_object_or_404(Socio, pk=pk)
+    return render(request, 'Socios/post_detail_Socios.html', {'socios': socios})
+
 def post_new_Socios(request):
     if request.method == "POST":
         form = PostForm_Socio(request.POST)
@@ -22,21 +35,6 @@ def post_new_Socios(request):
         form = PostForm_Socio()
     return render(request, 'Socios/post_new_Socios.html', {'form': form})
 
-def post_detail_Socios(request, pk):
-    socios = get_object_or_404(Socio, pk=pk)
-    return render(request, 'Socios/post_detail_Socios.html', {'socios': socios})
-
-def post_list_personas(request):
-    personas = Persona.objects.order_by('born_date')
-    return render(request, 'Personas/post_list_personas.html', {'personas': personas})
-
-def post_new_persona(request):
-    form = PostForm_Socio()
-    return render(request, 'Personas/post_new_persona.html', {'form': form})
-    
-def post_detail_persona(request, pk):
-    persona = get_object_or_404(Persona, pk=pk)
-    return render(request, 'Personas/post_detail_persona.html', {'persona': persona})
 def post_edit_socios(request, pk):
     post = get_object_or_404(Socio, pk=pk)
     if request.method == "POST":
@@ -55,4 +53,54 @@ def post_delete_socios(request, pk):
             socios.delete()
             return redirect('/Socios')
     return render(request, 'Socios/post_delete_Socios.html', {'socios': socios})
-    
+#
+#
+#
+#
+#SOCIOS 
+
+#PERSONAS
+#
+#
+#
+def post_list_personas(request):
+    personas = Persona.objects.order_by('born_date')
+    return render(request, 'Personas/post_list_personas.html', {'personas': personas})
+
+def post_detail_persona(request, pk):
+    persona = get_object_or_404(Persona, pk=pk)
+    return render(request, 'Personas/post_detail_persona.html', {'persona': persona})
+
+def post_new_persona(request):
+    if request.method == "POST":
+        form = PostForm_Persona(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return redirect('post_detail_persona', pk=post.pk)
+    else:
+        form = PostForm_Persona()
+    return render(request, 'Personas/post_new_persona.html', {'form': form})
+
+def post_edit_persona(request, pk):
+    post = get_object_or_404(Persona, pk=pk)
+    if request.method == "POST":
+        form = PostForm_Persona(request.POST, instance=post)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return redirect('post_detail_persona', pk=post.pk)
+    else:
+        form = PostForm_Persona(instance=post)
+    return render(request, 'Personas/post_new_persona.html', {'form': form})
+
+def post_delete_persona(request, pk):
+    personas = Persona.objects.get(pk=pk)
+    if request.method =="POST":
+            personas.delete()
+            return redirect('/Personas')
+    return render(request, 'Personas/post_delete_persona.html', {'personas': personas})
+#
+#
+#
+# PERSONAS

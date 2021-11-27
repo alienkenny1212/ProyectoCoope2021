@@ -1,0 +1,12 @@
+{% extends 'Socios/base.html' %} {% block content %}
+
+<h2>¿Está seguro de eliminar a esta persona?</h2>
+<div>
+    <form action="{% url 'post_list_personas'%}" method="POST" class="post-form">{% csrf_token %}
+        <button type="submit" class="btn btn-info">Cancelar</button>
+    </form>
+    <form action="{% url 'post_delete_persona' pk=personas.pk %}" method="POST" class="post-form">{% csrf_token %}
+        <button type="submit" class="btn btn-danger">Eliminar persona</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,14 +1,24 @@
 {% extends 'Socios/base.html' %} {% block content %}
+
 <div class="container mt-5">
     <div class="row d-flex justify-content-center">
         <div class="col-md-7">
             <div class="card p-3 py-4">
+
                 <div class="text-center"> <img src="https://cdn-icons-png.flaticon.com/512/1361/1361728.png" width="100" class="rounded-circle"> </div>
                 <div class="text-center mt-3"> <span class="bg-secondary p-1 px-4 rounded text-white">Persona:</span>
                     <h5 class="mt-2 mb-0">{{ persona.Nombres }} {{ persona.Apellidos }}</h5> <span> Codigo único de identificación: {{persona.CUI}}</span>
                     <div class="px-4 mt-1">
                         <p class="card-text ">Genero: {{persona.Genre}}</p>
                     </div>
+
+                    <form action="{% url 'post_edit_persona' pk=persona.pk %}">
+                        <input type="submit" value="Editar persona" class="btn btn-primary" />
+                    </form>
+
+                    <form action="{% url 'post_delete_persona' pk=persona.pk %}">
+                        <input type="submit" value="Borrar persona" class="btn btn-danger" />
+                    </form>
                 </div>
             </div>
         </div>
