@@ -1,0 +1,10 @@
+{% extends 'Socios/base.html' %} {% block content %} {% for personas in personas %}
+<div class="card" style="width: auto; margin: auto auto;">
+    <div class="card-body">
+        <h5 class="card-title"><a href=" {% url 'post_detail_persona' pk=personas.pk %} " style="color: #3a3a3a">Nombre: {{ personas.Nombres }} {{ personas.Apellidos }}</a></h2>
+            <p class="card-text ">CUI: {{personas.CUI}}</p>
+            <p class="card-text ">Fecha de nacimiento: {{personas.born_date}}</p>
+            <p class="card-text ">Genero: {{personas.Genre}}</p>
+    </div>
+</div>
+<br> {% endfor %} {% endblock %}
