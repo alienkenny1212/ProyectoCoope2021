@@ -20,7 +20,9 @@ class Socio(models.Model):
     Afiliacion_date = models.DateField()
     Genre = models.CharField(max_length=9)
     Codigo_Socio = models.CharField(max_length=100)
-    Cantidad_propiedad = models.DecimalField
-
+    Cantidad_propiedad = models.CharField(max_length=9)
+    def publish(self):
+    
+        self.save()
     def __str__(self):
         return self.Nombres + ' ' +self.Apellidos
