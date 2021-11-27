@@ -118,6 +118,7 @@ def post_detail_empleado(request, pk):
     empleado = get_object_or_404(Empleado, pk=pk)
     return render(request, 'Empleados/post_detail_Empleados.html', {'empleado': empleado})
 
+
 def post_new_empleado(request):
     if request.method == "POST":
         form = PostForm_Empleado(request.POST)

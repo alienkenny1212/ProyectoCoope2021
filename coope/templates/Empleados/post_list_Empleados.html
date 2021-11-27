@@ -1,4 +1,4 @@
-{% extends 'Socios/base.html' %} {% block content %} {% for empleados in empleados %}
+{% extends 'Socios/base.html' %} {% block content %} {% for empleados in empleado %}
 <div class="card" style="width: auto; margin: auto auto;">
     <div class="card-body">
         <h5 class="card-title"><a href=" {% url 'post_detail_empleado' pk=empleados.pk %} " style="color: #3a3a3a">Nombre: {{ empleados.Nombres }} {{ empleados.Apellidos }}</a></h2>
