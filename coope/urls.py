@@ -21,11 +21,11 @@ urlpatterns = [
 #NO TOCAR NADA DE AQUÍ PARA ARRIBA
 
 #EMPLEADOS
-    path('Empleados', views.post_list_empleados, name='post_list_Empleados'),
-    path('detEmpleado/<int:pk>/', views.post_detail_empleado, name='post_detail_empleados'),
-    path('newEmpleado', views.post_new_empleado, name='post_new_empleados'),
-    path('detEmpleados/<int:pk>/edit/', views.post_edit_empleado, name='post_edit_empleados'),
-    path('deleteEmpleados/<int:pk>/', views.post_delete_empleado, name='post_delete_empleados'),
+    path('Empleados', views.post_list_empleado, name='post_list_empleado'),
+    path('detEmpleado/<int:pk>/', views.post_detail_empleado, name='post_detail_empleado'),
+    path('newEmpleado', views.post_new_empleado, name='post_new_empleado'),
+    path('detEmpleados/<int:pk>/edit/', views.post_edit_empleado, name='post_edit_empleado'),
+    path('deleteEmpleados/<int:pk>/', views.post_delete_empleado, name='post_delete_empleado'),
 
 
 #TECNICOS

@@ -16,10 +16,10 @@
                         <p class="card-text ">Genero: {{empleados.Genero}}</p>
                     </div>
 
-                    <form action="{% url 'post_edit_empleados' pk=empleados.pk %}">
+                    <form action="{% url 'post_edit_empleado' pk=empleados.pk %}">
                         <input type="submit" value="Editar" class="btn btn-primary" />
                     </form>
-                    <form action="{% url 'post_delete_empleados' pk=empleados.pk %}">
+                    <form action="{% url 'post_delete_empleado' pk=empleados.pk %}">
                         <input type="submit" value="Borrar" class="btn btn-danger" />
                     </form>
                 </div>

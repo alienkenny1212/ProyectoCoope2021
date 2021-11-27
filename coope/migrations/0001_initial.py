@@ -34,19 +34,5 @@ class Migration(migrations.Migration):
                 ('Cantidad_propiedad', models.CharField(max_length=9)),
             ],
         ),
-        migrations.CreateModel(
-            name='Empleado',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('Nombres', models.CharField(max_length=100)),
-                ('Apellidos', models.CharField(max_length=100)),
-                ('CUI', models.CharField(max_length=13)),
-                ('FechaNac', models.DateField()),
-                ('Genre', models.CharField(max_length=10)),
-                ('User', models.CharField(max_length=20)),
-                ('Password', models.CharField(max_length=20)),
-                ('Puesto', models.CharField(max_length=60)),
-                ('Estado', models.CharField(max_length=60)),
-            ],
-        ),
+        
     ]

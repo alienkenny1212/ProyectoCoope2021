@@ -110,13 +110,13 @@ def post_delete_persona(request, pk):
 #
 #
 #
-def post_list_empleados(request):
+def post_list_empleado(request):
     empleados = Empleado.objects.order_by('FechaNac')
-    return render(request, 'Empleados/post_list_empleados.html', {'empleados': empleados})
+    return render(request, 'Empleados/post_list_Empleados.html', {'empleado': empleados})
 
 def post_detail_empleado(request, pk):
     empleado = get_object_or_404(Empleado, pk=pk)
-    return render(request, 'Empleados/post_detail_empleado.html', {'empleado': empleado})
+    return render(request, 'Empleados/post_detail_Empleados.html', {'empleado': empleado})
 
 def post_new_empleado(request):
     if request.method == "POST":
@@ -127,7 +127,7 @@ def post_new_empleado(request):
             return redirect('post_detail_empleado', pk=post.pk)
     else:
         form = PostForm_Empleado()
-    return render(request, 'Empleados/post_new_empleado.html', {'form': form})
+    return render(request, 'Empleados/post_new_Empleados.html', {'form': form})
 
 def post_edit_empleado(request, pk):
     post = get_object_or_404(Empleado, pk=pk)
@@ -139,14 +139,14 @@ def post_edit_empleado(request, pk):
             return redirect('post_detail_empleado', pk=post.pk)
     else:
         form = PostForm_Empleado(instance=post)
-    return render(request, 'Empleados/post_new_empleado.html', {'form': form})
+    return render(request, 'Empleados/post_new_Empleados.html', {'form': form})
 
 def post_delete_empleado(request, pk):
     empleados = Empleado.objects.get(pk=pk)
     if request.method =="POST":
             empleados.delete()
             return redirect('/Empleados')
-    return render(request, 'Empleados/post_delete_empleado.html', {'empleados': empleados})
+    return render(request, 'Empleados/post_delete_Empleados.html', {'empleados': empleados})
 #
 #
 #

@@ -16,4 +16,4 @@ class PostForm_Persona(forms.ModelForm):
 class PostForm_Empleado(forms.ModelForm):
     class Meta:
         model = Empleado
-        fields = ('Nombres', 'Apellidos','CUI', 'FechaNac','Genre',)
+        fields = ('Nombres', 'Apellidos','CUI', 'FechaNac','Genre', 'Estado', 'User', 'Password', 'Puesto',)
