@@ -17,6 +17,9 @@
                     <form action="{% url 'post_edit_socios' pk=socios.pk %}">
                         <input type="submit" value="Editar" class="btn btn-primary" />
                     </form>
+                    <form action="{% url 'post_delete_socios' pk=socios.pk %}">
+                        <input type="submit" value="Borrar" class="btn btn-danger" />
+                    </form>
                 </div>
             </div>
         </div>
