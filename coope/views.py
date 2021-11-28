@@ -11,7 +11,7 @@ from django.shortcuts import render, get_object_or_404
 # Create your views here.
 
 def menu_principal(request):
-    return render(request, 'General/menu.html')
+    return render(request, 'index.html')
 
 #SOCIOS By Julio Ve
 #
