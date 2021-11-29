@@ -29,7 +29,11 @@ urlpatterns = [
 
 
 #TECNICOS
-
+    path('Tecnicos', views.post_list_tecnico, name='post_list_tecnico'),
+    path('detTecnico/<int:pk>/', views.post_detail_tecnico, name='post_detail_tecnico'),
+    path('newTecnico', views.post_new_tecnico, name='post_new_tecnico'),
+    path('detTecnicos/<int:pk>/edit/', views.post_edit_tecnico, name='post_edit_tecnico'),
+    path('deleteTecnicos/<int:pk>/', views.post_delete_tecnico, name='post_delete_tecnico'),
 #INSPECTORES
 
 ]

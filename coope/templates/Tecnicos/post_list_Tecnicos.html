@@ -1,0 +1,11 @@
+{% extends 'Socios/base.html' %} {% block content %} {% for tecnicos in tecnicos %}
+<div class="card" style="width: auto; margin: auto auto;">
+    <div class="card-body">
+        <h5 class="card-title"><a href=" {% url 'post_detail_tecnico' pk=tecnicos.pk %} " style="color: #3a3a3a">Nombre: {{ tecnicos.Nombres }} {{ tecnicos.Apellidos }}</a></h2>
+            <p class="card-text ">CUI: {{tecnicos.CUI}}</p>
+            <p class="card-text ">Fecha nacimiento: {{tecnicos.FechaNac}}</p>
+            <p class="card-text ">Genero: {{tecnicos.Genre}}</p>
+            <p class="card-text ">Codigo tecnico: {{tecnicos.Codigo_tecnico}}</p>
+    </div>
+</div>
+<br> {% endfor %} {% endblock %}
