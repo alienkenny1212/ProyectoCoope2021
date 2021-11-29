@@ -45,3 +45,19 @@ class Empleado(models.Model):
     def __str__(self):
         return self.Nombres + ' ' +self.Apellidos
 
+
+#Crear Modelo Tecnico
+class Tecnico(models.Model):
+    Nombres = models.CharField(max_length=100)
+    Apellidos = models.CharField(max_length=100)
+    CUI = models.CharField(max_length=17)
+    FechaNac = models.DateField()
+    Genre = models.CharField(max_length=10)
+    Codigo_tecnico = models.CharField(max_length=20)
+    
+    def publish(self):
+        self.save()
+
+    def __str__(self):
+        return self.Nombres + ' ' +self.Apellidos
+
