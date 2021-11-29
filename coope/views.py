@@ -4,7 +4,8 @@ from django.utils import timezone
 from .models import Socio
 from .models import Persona
 from .models import Empleado
-from .forms import PostForm_Persona, PostForm_Socio, PostForm_Empleado
+from .models import Tecnico
+from .forms import PostForm_Persona, PostForm_Socio, PostForm_Empleado, PostForm_Tecnico
 from django.shortcuts import redirect
 from django.shortcuts import render, get_object_or_404
 
@@ -152,3 +153,50 @@ def post_delete_empleado(request, pk):
 #
 #
 # EMPLEADOS
+
+#Tecnico
+#
+#
+#
+def post_list_tecnico(request):
+    tecnicos = Tecnico.objects.order_by('FechaNac')
+    return render(request, 'Tecnicos/post_list_Tecnicos.html', {'tecnicos': tecnicos})
+
+def post_detail_tecnico(request, pk):
+    tecnico = get_object_or_404(Tecnico, pk=pk)
+    return render(request, 'Tecnicos/post_detail_Tecnicos.html', {'tecnico': tecnico})
+
+
+def post_new_tecnico(request):
+    if request.method == "POST":
+        form = PostForm_Tecnico(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return redirect('post_detail_tecnico', pk=post.pk)
+    else:
+        form = PostForm_Tecnico()
+    return render(request, 'Tecnicos/post_new_Tecnicos.html', {'form': form})
+
+def post_edit_tecnico(request, pk):
+    post = get_object_or_404(Tecnico, pk=pk)
+    if request.method == "POST":
+        form = PostForm_Tecnico(request.POST, instance=post)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return redirect('post_detail_tecnico', pk=post.pk)
+    else:
+        form = PostForm_Tecnico(instance=post)
+    return render(request, 'Tecnicos/post_new_Tecnicos.html', {'form': form})
+
+def post_delete_tecnico(request, pk):
+    tecnicos = Tecnico.objects.get(pk=pk)
+    if request.method =="POST":
+            tecnicos.delete()
+            return redirect('/Tecnicos')
+    return render(request, 'Tecnicos/post_delete_Tecnicos.html', {'tecnicos': tecnicos})
+#
+#
+#
+# Tecnico
