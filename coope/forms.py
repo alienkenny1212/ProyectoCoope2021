@@ -3,6 +3,7 @@ from .models import Persona
 from .models import Socio
 from .models import Empleado
 from .models import Tecnico
+from .models import Inspector
 
 class PostForm_Socio(forms.ModelForm):
     class Meta:
@@ -23,3 +24,8 @@ class PostForm_Tecnico(forms.ModelForm):
     class Meta:
         model = Tecnico
         fields = ('Nombres', 'Apellidos','CUI', 'FechaNac','Genre','Codigo_tecnico',)
+
+class PostForm_Inspector(forms.ModelForm):
+    class Meta:
+        model = Inspector
+        fields = ('Nombre', 'Apellido','CUI', 'FechaN','Genero','CodigoInsp',)

@@ -5,7 +5,8 @@ from .models import Socio
 from .models import Persona
 from .models import Empleado
 from .models import Tecnico
-from .forms import PostForm_Persona, PostForm_Socio, PostForm_Empleado, PostForm_Tecnico
+from .models import Inspector
+from .forms import PostForm_Persona, PostForm_Socio, PostForm_Empleado, PostForm_Tecnico, PostForm_Inspector
 from django.shortcuts import redirect
 from django.shortcuts import render, get_object_or_404
 
@@ -200,3 +201,51 @@ def post_delete_tecnico(request, pk):
 #
 #
 # Tecnico
+
+
+#Inspector
+#
+#
+#
+def post_list_Inspector(request):
+    inspector = Inspector.objects.order_by('FechaN')
+    return render(request, 'Inspector/post_list_Inspector.html', {'inspector': inspector})
+
+def post_detail_Inspector(request, pk):
+    inspector = get_object_or_404(Inspector, pk=pk)
+    return render(request, 'Inspector/post_detail_Inspector.html', {'inspector': inspector})
+
+
+def post_new_Inspector(request):
+    if request.method == "POST":
+        form = PostForm_Inspector(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return redirect('post_detail_Inspector', pk=post.pk)
+    else:
+        form = PostForm_Inspector()
+    return render(request, 'Inspector/post_new_Inspector.html', {'form': form})
+
+def post_edit_Inspector(request, pk):
+    post = get_object_or_404(Inspector, pk=pk)
+    if request.method == "POST":
+        form = PostForm_Inspector(request.POST, instance=post)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return redirect('post_detail_Inspector', pk=post.pk)
+    else:
+        form = PostForm_Inspector(instance=post)
+    return render(request, 'Inspector/post_new_Inspector.html', {'form': form})
+
+def post_delete_Inspector(request, pk):
+    inspector = Inspector.objects.get(pk=pk)
+    if request.method =="POST":
+            inspector.delete()
+            return redirect('/Inspector')
+    return render(request, 'Inspector/post_delete_Inspector.html', {'inspector': inspector})
+#
+#
+#
+# Inspector

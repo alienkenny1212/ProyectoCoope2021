@@ -61,3 +61,17 @@ class Tecnico(models.Model):
     def __str__(self):
         return self.Nombres + ' ' +self.Apellidos
 
+#Crear Modelo Inspector
+class Inspector(models.Model):
+    Nombre= models.CharField(max_length=100)
+    Apellido = models.CharField(max_length=100)
+    CUI = models.CharField(max_length=17)
+    FechaN = models.DateField()
+    Genero = models.CharField(max_length=10)
+    CodigoInsp = models.CharField(max_length=20)
+    
+    def publish(self):
+        self.save()
+
+    def __str__(self):
+        return self.Nombre + ' ' +self.Apellido

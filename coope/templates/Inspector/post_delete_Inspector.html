@@ -1,0 +1,12 @@
+{% extends 'Socios/base.html' %} {% block content %}
+
+<h2>¿Está seguro de elimiar a este inspector?</h2>
+<div>
+    <form action="{% url 'post_list_Inspector'%}" method="POST" class="post-form">{% csrf_token %}
+        <button type="submit" class="btn btn-info">Cancelar</button>
+    </form>
+    <form action="{% url 'post_delete_Inspector' pk=inspector.pk %}" method="POST" class="post-form">{% csrf_token %}
+        <button type="submit" class="btn btn-danger">Eliminar inspector</button>
+    </form>
+</div>
+{% endblock %}

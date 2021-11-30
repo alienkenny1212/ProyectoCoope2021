@@ -35,5 +35,9 @@ urlpatterns = [
     path('detTecnicos/<int:pk>/edit/', views.post_edit_tecnico, name='post_edit_tecnico'),
     path('deleteTecnicos/<int:pk>/', views.post_delete_tecnico, name='post_delete_tecnico'),
 #INSPECTORES
-
+path('Inspector', views.post_list_Inspector, name='post_list_Inspector'),
+    path('detInspector/<int:pk>/', views.post_detail_Inspector, name='post_detail_Inspector'),
+    path('newInspector', views.post_new_Inspector, name='post_new_Inspector'),
+    path('detInspector/<int:pk>/edit/', views.post_edit_Inspector, name='post_edit_Inspector'),
+    path('deleteInspector/<int:pk>/', views.post_delete_Inspector, name='post_delete_Inspector'),
 ]
