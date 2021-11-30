@@ -1,0 +1,11 @@
+{% extends 'Socios/base.html' %} {% block content %} {% for inspector in inspector %}
+<div class="card" style="width: auto; margin: auto auto;">
+    <div class="card-body">
+        <h5 class="card-title"><a href=" {% url 'post_detail_Inspector' pk=inspector.pk %} " style="color: #3a3a3a">Nombre: {{ inspector.Nombre }} {{ inspector.Apellido }}</a></h2>
+            <p class="card-text ">CUI: {{inspector.CUI}}</p>
+            <p class="card-text ">Fecha nacimiento: {{inspector.FechaN}}</p>
+            <p class="card-text ">Genero: {{inspector.Genero}}</p>
+            <p class="card-text ">Codigo inspector: {{inspector.CodigoInsp}}</p>
+    </div>
+</div>
+<br> {% endfor %} {% endblock %}
