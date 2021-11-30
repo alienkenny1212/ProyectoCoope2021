@@ -5,60 +5,67 @@
     <title>Cooperativa Integral Agrícola Acatenango R.L.</title>
     <link rel="icon" href='{% static % ../../../static/assets/img/logo.png'}>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-
-    <!-- Image and text -->
-
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
             <a class="navbar-brand" href="../">
-                <img src="https://flaticons.net/icon.php?slug_category=mobile-application&slug_icon=left-arrow" alt="" width="50" height="50"> Volver
-            </a>
-            <a class="navbar-brand" href="/Socios">
-                <img src="https://businessinfact.com/wp-content/uploads/2015/11/kisspng-associate-business-management-contract-socios-5b3e14920d5564.8618478615307951540546.png" width="60" height="30" class="d-inline-block align-top" alt=""> Socios
-            </a>
-            
-            <a class="navbar-brand" href="/Personas">
-                <img src="https://cdn-icons-png.flaticon.com/512/268/268598.png" alt="Logo personas"  width="60" height="40"> Personas
-            </a>
-            <a class="navbar-brand" href="/Empleados">
-                <img src="https://icon-library.com/images/new-employee-icon/new-employee-icon-23.jpg" alt=""  width="60" height="40"> Empleados
-            </a>
-            <a class="navbar-brand" href="/Tecnicos">
-                <img src="https://icon-library.com/images/new-employee-icon/new-employee-icon-23.jpg" alt=""  width="60" height="40"> Técnicos
-            </a>
-            <a class="navbar-brand" href="/Inspector">
-                <img src="https://icon-library.com/images/new-employee-icon/new-employee-icon-23.jpg" alt=""  width="60" height="40"> Inspector
+                <img src="https://flaticons.net/icon.php?slug_category=mobile-application&slug_icon=left-arrow" alt="" width="40" height="40"> Volver
             </a>
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/newSocio">Agregar socio<span class="sr-only"></span></a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="/Personas" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://cdn-icons-png.flaticon.com/512/268/268598.png" alt="Logo personas"  width="50" height="40"> Personas
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                        <li><a class="dropdown-item" href="/newPersona">Crear</a></li>
+                        <li><a class="dropdown-item" href="/Personas">Listado</a></li>
+                    </ul>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/newPersona">Agregar persona<span class="sr-only"></span></a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="/Socios" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://businessinfact.com/wp-content/uploads/2015/11/kisspng-associate-business-management-contract-socios-5b3e14920d5564.8618478615307951540546.png" alt="Logo socios"  width="50" height="40"> Socios
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                        <li><a class="dropdown-item" href="/newSocio">Crear</a></li>
+                        <li><a class="dropdown-item" href="/Socios">Listado</a></li>
+                    </ul>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/newEmpleado">Agregar empleado<span class="sr-only"></span></a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="/Empleados" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://icon-library.com/images/new-employee-icon/new-employee-icon-23.jpg" alt="Logo empleados"  width="50" height="40"> Empleados
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                        <li><a class="dropdown-item" href="/newEmpleado">Crear</a></li>
+                        <li><a class="dropdown-item" href="/Empleados">Listado</a></li>
+                    </ul>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/newTecnico">Agregar tecnico<span class="sr-only"></span></a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="/Tecnicos" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://www.nicepng.com/png/full/202-2029828_report-bug-spanner-white-icon-png.png" alt="Logo tecnicos"  width="50" height="40"> Técnicos
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                        <li><a class="dropdown-item" href="/newTecnico">Crear</a></li>
+                        <li><a class="dropdown-item" href="/Tecnicos">Listado</a></li>
+                    </ul>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/newInspector">Agregar tecnico<span class="sr-only"></span></a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="/Inspector" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/VisualEditor_-_Icon_-_Search-big_-_white.svg/1200px-VisualEditor_-_Icon_-_Search-big_-_white.svg.png" alt="Logo inspectores"  width="50" height="40"> Inspectores
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                        <li><a class="dropdown-item" href="/newInspector">Crear</a></li>
+                        <li><a class="dropdown-item" href="/Inspector">Listado</a></li>
+                    </ul>
                 </li>
-
             </ul>
-
         </div>
     </nav>
 </head>
-
 <body>
-
-
     <div class="content container">
         <div class="row">
             <div class="col-md-8">
